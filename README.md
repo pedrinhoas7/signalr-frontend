@@ -30,6 +30,7 @@ Este é um projeto de front-end desenvolvido com **React** que utiliza **SignalR
    ```bash
    npm start
    ```
+5. Execulte o [backend](https://github.com/pedrinhoas7/signalr-backend)
 
 ## 🧪 Funcionalidades
 
