@@ -64,11 +64,6 @@ Evento enviado:
 
 Atualmente, o projeto possui apenas um componente principal chamado `Example.tsx`, que pode ser estruturado em múltiplos componentes futuramente.
 
-
-## 📄 Licença
-
-Este projeto é open-source e está sob a licença [MIT](LICENSE).
-
----
+## 👨‍💻 Autor
 
 Desenvolvido com 💙 por Pedro Henrique
