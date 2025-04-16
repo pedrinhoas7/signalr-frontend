@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# 💸 SignalR Banking Frontend (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de front-end desenvolvido com **React** que utiliza **SignalR** para comunicação em tempo real com um webservice de backend. Ele simula um sistema bancário básico, permitindo consulta de saldo, extrato e realização de transações como **depósito** e **pagamento**.
 
-## Available Scripts
+## 🚀 Tecnologias Utilizadas
 
-In the project directory, you can run:
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/) (opcional, mas recomendado)
+- [@microsoft/signalr](https://www.npmjs.com/package/@microsoft/signalr) – para comunicação em tempo real com o backend
 
-### `npm start`
+## 📦 Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/pedrinhoas7/signalr-frontend.git
+   cd signalr-frontend
+   ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+3. Crie um arquivo `.env` na raiz do projeto com a variável de ambiente da URL do backend:
+   ```
+   REACT_APP_API_URL=https://localhost:58886
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Execute o projeto:
+   ```bash
+   npm start
+   ```
 
-### `npm run build`
+## 🧪 Funcionalidades
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Login** via CPF e Email (apenas campos de entrada, sem autenticação real)
+- **Conexão com SignalR Hub** usando os parâmetros do usuário
+- **Consulta de dados da conta**: saldo e extrato bancário
+- **Envio de transações**:
+  - Depósito
+  - Pagamento
+- **Recebimento em tempo real** de atualizações da conta
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🖼️ Captura de Tela
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://github.com/user-attachments/assets/8049e702-cb0a-4b66-8ad1-d65a96f7dfaf)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🧠 Como Funciona
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A conexão com o SignalR é feita logo após o login com o seguinte endpoint:
+```
+<REACT_APP_API_URL>/ws/transactions?document=<cpf>&email=<email>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Eventos escutados:
+- `ReceiveAccountDetails`: recebe saldo e extrato
+- `Error`: exibe alertas de erro
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Evento enviado:
+- `ProcessTransaction`: envia a operação (depósito ou pagamento) com valor e descrição
 
-## Learn More
+## 📁 Estrutura Simples
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Atualmente, o projeto possui apenas um componente principal chamado `Example.tsx`, que pode ser estruturado em múltiplos componentes futuramente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+## 📄 Licença
+
+Este projeto é open-source e está sob a licença [MIT](LICENSE).
+
+---
+
+Desenvolvido com 💙 por Pedro Henrique
